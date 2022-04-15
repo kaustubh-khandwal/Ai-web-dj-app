@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>AI DJ WEB APP</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <title>AI DJ WEB APP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.js"
+    integrity="sha512-4P0ZJ49OMXe3jXT+EsEaq82eNwFeyYL81LeHGzGcEhowFbTqeQ80q+NEkgsE8tHPs6aCqvi7U+XWliAjDmT5Lg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
 
@@ -14,23 +18,25 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
+
 <body background="background.jpg">
-<center>
-  	<h3 class="btn btn-warning heading">AI DJ WEB APP
-	    <br>
-	    <span class="note">NOTE - Get your left-hand wrist in front of the webcam to play peter pan Song. 
-        Get your right-hand wrist in front of the webcam to play Harry potter theme Song.</span>
-  	</h3>
-    <div class="div_Song_name">
-      
+  <center>
+    <h3 class="btn btn-warning heading">AI DJ WEB APP
       <br>
-      <h3 class="btn btn-danger" id="Song_name">Song name</h3>
+      <span class="note">NOTE - Get your left-hand wrist in front of the webcam to play Light's theme.
+        Get your right-hand wrist in front of the webcam to play L's theme.</span>
+    </h3>
+    <div class="div_Song_name">
+
+      <br>
+      <h3 class="btn btn-danger" id="Song_name" onclick="play()">Song name</h3>
     </div>
 
-    
-	<br><br>
-</center>
 
-<script src="main.js"></script>
+    <br><br>
+  </center>
+
+  <script src="main.js"></script>
 </body>
+
 </html>
