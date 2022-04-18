@@ -1,5 +1,10 @@
 L_theme = "";
 Light_them = "";
+leftwristX= 0;
+leftwristY = 0;
+rightwristX = 0;
+rightwristY = 0;
+
 function preload() {
     L_theme = loadSound("L theme.mp3");
     Light_theme = loadSound("Light theme.mp3");
@@ -11,6 +16,14 @@ function setup(){
 
     video = createCapture(VIDEO)
     video.hide()
+
+    poseNet = ml5.poseNet(video,modelloaded)
+
+    poseNet.on("pose",gotPoses)
+}
+
+function modelloaded() {
+    console.log("poseNet is now intialized")
 }
 
 function draw() {
@@ -20,4 +33,17 @@ function draw() {
 function play() {
     L_theme.play()
     Light_theme.play()
+}
+
+function gotPoses(results) {
+    if (results.length > 0) {
+        console.log(results)
+        leftwristX = results[0].pose.leftWrist.x;
+        leftwristY = results[0].pose.leftWrist.y;
+        console.log("leftwristX = " + leftwristX + "leftwristY = " + leftwristY)
+
+        rightwristX = results[0].pose.rightWrist.x;
+        rightwristY = results[0].pose.rightWrist.y;
+        console.log("rightwristX = " + rightwristX + "rightwristY = " + rightwristY)
+    }
 }
