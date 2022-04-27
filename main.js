@@ -5,6 +5,8 @@ leftwristX= 0;
 leftwristY = 0;
 rightwristX = 0;
 rightwristY = 0;
+scoreleftwrist = 0;
+scorerightwrist = 0;
 
 function preload() {
     L_theme = loadSound("L theme.mp3");
@@ -38,11 +40,19 @@ function draw() {
     if (scoreleftwrist > 0.2) {
         circle(leftwristX,leftwristY,20)
         Light_theme.stop()
+        if (song_status == false) {
+            L_theme.play()
+            document.getElementById("song_name").innerHTML = "L's theme";
+        }
     }
 
-    if (song_status == false) {
-        L_theme.play()
-        document.getElementById("song_name").innerHTML = "L's theme";
+    if (scorerightwrist > 0.2) {
+        circle(rightwristX,rightwristY,20)
+        L_theme.stop()
+        if (song_status == false) {
+            Light_theme.play()
+            document.getElementById("song_name").innerHTML = "Light's theme";
+        }
     }
 }
 
@@ -52,10 +62,13 @@ function play() {
 }
 
 function gotPoses(results) {
+
+
     if (results.length > 0) {
         console.log(results)
         scoreleftwrist = results[0].keypoints[9].score;
-        console.log("scoreleftwrist = " + scoreleftwrist)
+        scorerightwrist = results[0].keypoints[10].score;
+        console.log("scorerightwrist = " + scorerightwrist + "scoreleftwrist = " + scoreleftwrist)
 
         leftwristX = results[0].pose.leftWrist.x;
         leftwristY = results[0].pose.leftWrist.y;
